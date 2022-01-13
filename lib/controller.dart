@@ -10,22 +10,24 @@ class Controller extends GetxController {
   final statusError = false.obs;
 
   @override
-  void onInit() {
-    super.onInit();
+  void onReady() {
+    super.onReady();
     getJson();
   }
 
-  getJson() async {
-    try{
-       var url = Uri.parse(
-        'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson');
+  Future<void> getJson() async {
+    try {
+      var url = Uri.parse(
+        'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson',
+      );
       http.Response response = await http.get(url);
-      dados.addAll(json.decode(response.body));
-    }catch (err){
+      dados.addAll(
+        json.decode(response.body),
+      );
+    } catch (err) {
       statusError.value = false;
-    }finally{
+    } finally {
       load.value = false;
     }
-
   }
 }
