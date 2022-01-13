@@ -22,7 +22,9 @@ class Controller extends GetxController {
       );
       http.Response response = await http.get(url);
       dados.addAll(
-        json.decode(response.body),
+        json.decode(
+          response.body,
+        ),
       );
     } catch (err) {
       statusError.value = false;

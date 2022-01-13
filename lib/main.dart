@@ -4,15 +4,17 @@ import 'package:terremotos/bindings.dart';
 import 'package:terremotos/home.dart';
 
 void main() {
-  runApp(GetMaterialApp(
-    title: 'Terremotos',
-    initialRoute: '/home',
-    getPages: [
-      GetPage(
-        name: '/home',
-        page: () => const HomePage(),
-        binding: HomeBinding(),
-      )
-    ],
-  ));
+  runApp(
+    GetMaterialApp(
+      title: 'Terremotos',
+      initialRoute: '/home',
+      getPages: [
+        GetPage(
+          name: '/home',
+          page: () => const HomePage(),
+          binding: HomeBinding(),
+        )
+      ],
+    ),
+  );
 }
